@@ -7,7 +7,7 @@ import RegisterForm from './_components/form';
 
 const Register = () => {
   return (
-    <div className="px-6 py-10">
+    <div className="p-6">
       <div className="flex items-center space-x-1 text-white">
         <ChevronLeftIcon className="h-6 w-6" />
         <Link href={'/'}>

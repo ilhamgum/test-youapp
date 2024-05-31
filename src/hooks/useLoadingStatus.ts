@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 export default function useLoadingStatus() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   // messages
-  const [message, setMessage] = useState<string>("");
-  const [error, setError] = useState<string>("");
+  const [message, setMessage] = useState<string>('');
+  const [error, setError] = useState<string>('');
 
   const startLoading = () => setIsLoading(true);
 

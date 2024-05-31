@@ -25,12 +25,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} flex h-[100vh] items-center justify-center overflow-hidden bg-black`}>
+    <html lang="en" className="flex h-[100vh] items-center justify-center overflow-hidden bg-black">
+      <body
+        className={`${inter.className} shadow-[0 0 10px rgba(0, 0, 0.5)] min-h-screen w-[500px] overflow-hidden bg-[#09141A] text-white`}
+      >
         <Toaster />
-        <main className="shadow-[0 0 10px rgba(0, 0, 0.5)] min-h-screen w-[500px] overflow-hidden bg-white">
-          {children}
-        </main>
+        {children}
       </body>
     </html>
   );
