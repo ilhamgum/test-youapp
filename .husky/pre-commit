@@ -1,0 +1,4 @@
+npx prettier . --write
+npm run lint
+
+exit 0
