@@ -6,6 +6,8 @@ import React, { useState } from 'react';
 import { ArrowPathIcon } from '@heroicons/react/20/solid';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { setCookie } from 'cookies-next';
+import { addDays, formatISO } from 'date-fns';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { z } from 'zod';
@@ -13,7 +15,7 @@ import { z } from 'zod';
 import useLoadingStatus from '@/hooks/useLoadingStatus';
 
 import { Button } from '@/components/atoms/button';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/atoms/form';
+import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/atoms/form';
 import { Input } from '@/components/atoms/input';
 
 import axios from '@/utils/axios';
@@ -42,10 +44,15 @@ const LoginForm = () => {
     try {
       startLoading();
 
-      const response = await axios.post('api/login', data);
+      const response = await axios.post('api/login', { ...data, username: '' });
 
       if (!response.data?.error) {
         toast.success(response.data?.message);
+        setCookie('youapp_access_token', response.data?.access_token, {
+          expires: new Date(formatISO(addDays(new Date(), 30))),
+          path: '/',
+        });
+
         router.push('/');
       }
     } catch (err) {
@@ -68,7 +75,6 @@ const LoginForm = () => {
           }}
           render={({ field }) => (
             <FormItem>
-              <FormLabel />
               <FormControl>
                 <Input
                   {...field}
@@ -93,7 +99,6 @@ const LoginForm = () => {
           }}
           render={({ field }) => (
             <FormItem className="mt-5">
-              <FormLabel />
               <FormControl>
                 <div className="relative">
                   <Input

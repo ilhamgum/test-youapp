@@ -20,9 +20,7 @@ const Login = () => {
         <p className="mt-14 text-center text-white">
           No account?{' '}
           <Link href="/register">
-            <span className="cursor-pointer border-b border-[#F3EDA6] bg-gradient-to-r from-[#F3EDA6] via-[#94783E] to-[#F3EDA6] bg-clip-text text-transparent">
-              Register here
-            </span>
+            <span className="text-gradient cursor-pointer border-b border-[#F3EDA6]">Register here</span>
           </Link>
         </p>
       </div>

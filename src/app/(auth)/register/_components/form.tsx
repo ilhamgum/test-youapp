@@ -13,7 +13,7 @@ import { z } from 'zod';
 import useLoadingStatus from '@/hooks/useLoadingStatus';
 
 import { Button } from '@/components/atoms/button';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/atoms/form';
+import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/atoms/form';
 import { Input } from '@/components/atoms/input';
 
 import axios from '@/utils/axios';
@@ -83,7 +83,6 @@ const RegisterForm = () => {
           }}
           render={({ field }) => (
             <FormItem>
-              <FormLabel />
               <FormControl>
                 <Input
                   {...field}
@@ -108,7 +107,6 @@ const RegisterForm = () => {
           }}
           render={({ field }) => (
             <FormItem className="mt-5">
-              <FormLabel />
               <FormControl>
                 <Input
                   {...field}
@@ -133,7 +131,6 @@ const RegisterForm = () => {
           }}
           render={({ field }) => (
             <FormItem className="mt-5">
-              <FormLabel />
               <FormControl>
                 <div className="relative">
                   <Input
@@ -172,7 +169,6 @@ const RegisterForm = () => {
           }}
           render={({ field }) => (
             <FormItem className="mt-5">
-              <FormLabel />
               <FormControl>
                 <div className="relative">
                   <Input

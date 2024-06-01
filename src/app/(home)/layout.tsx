@@ -1,4 +1,4 @@
-import React from 'react';
+import { AuthGuard } from '@/hooks/useAuth';
 
 import Navbar from '@/components/organisms/navbar';
 
@@ -8,12 +8,12 @@ const HomeLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <>
+    <AuthGuard>
       <nav className="p-6">
         <Navbar />
       </nav>
       <main className="px-6">{children}</main>
-    </>
+    </AuthGuard>
   );
 };
 

@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google';
 
 import { Toaster } from 'sonner';
 
+import { AuthGuard } from '@/hooks/useAuth';
+
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -25,12 +27,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="flex h-[100vh] items-center justify-center overflow-hidden bg-black">
+    <html lang="en" className="flex min-h-[100vh] items-center justify-center bg-black">
       <body
-        className={`${inter.className} shadow-[0 0 10px rgba(0, 0, 0.5)] min-h-screen w-[500px] overflow-hidden bg-[#09141A] text-white`}
+        className={`${inter.className} shadow-[0 0 10px rgba(0, 0, 0.5)] min-h-screen w-[500px] overflow-x-hidden bg-[#09141A] text-white`}
       >
         <Toaster />
-        {children}
+        <AuthGuard>{children}</AuthGuard>
       </body>
     </html>
   );

@@ -1,4 +1,6 @@
 npx prettier . --write
 npm run lint
 
+git add .
+
 exit 0
