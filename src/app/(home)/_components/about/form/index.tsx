@@ -88,7 +88,6 @@ const AboutForm = () => {
       });
 
       toast.success(response.data.message);
-      localStorage.setItem('youapp-profile', JSON.stringify(response.data.data));
       refreshProfile();
       setIsEdit(false);
     } catch (err) {

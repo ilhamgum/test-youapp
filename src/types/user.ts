@@ -7,5 +7,10 @@ export interface UserProps {
   zodiac: string;
   height: number;
   weight: number;
-  interests: string[];
+  interest?: InterestProps[];
+}
+
+export interface InterestProps {
+  label: string;
+  value: string;
 }

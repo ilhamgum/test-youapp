@@ -38,6 +38,23 @@ mock.onPost('/api/login').reply(() => {
 });
 
 mock.onPut('/api/updateProfile').reply((config) => {
+  const profileDataOnLocalStorage = localStorage.getItem('youapp-profile');
+
+  if (profileDataOnLocalStorage) {
+    const parsed = JSON.parse(profileDataOnLocalStorage);
+
+    const updated = { ...parsed, ...JSON.parse(config.data), image: '/img/example-photo.png' };
+
+    localStorage.setItem('youapp-profile', JSON.stringify(updated));
+
+    return [200, { data: updated, error: null, message: 'Update profile success' }];
+  }
+
+  localStorage.setItem(
+    'youapp-profile',
+    JSON.stringify({ ...JSON.parse(config.data), image: '/img/example-photo.png' })
+  );
+
   return [
     200,
     {
